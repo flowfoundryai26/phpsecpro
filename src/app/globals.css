@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Neutral base — zinc/slate, no pure black */
+  --color-ink: #0b0d10;
+  --color-ink-soft: #16191e;
+  --color-ink-line: #262b33;
+  --color-text: #13161b;
+  --color-muted: #5d6572;
+  --color-muted-soft: #8991a0;
+  --color-surface: #f8f9fb;
+  --color-surface-raised: #f1f3f6;
+  --color-border: #e5e7eb;
+  --color-background: #ffffff;
+
+  /* Single accent — electric blue, desaturated */
+  --color-accent: #2f6fed;
+  --color-accent-strong: #1d57d1;
+  --color-accent-bright: #5b93ff;
+  --color-accent-soft: #eef3ff;
+  --color-accent-line: #c9dafc;
+
+  /* Reserved for urgency states only, never decorative */
+  --color-danger: #d23b3b;
+  --color-danger-soft: #fdeded;
+
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-jetbrains);
+
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.5rem;
+
+  --shadow-diffuse: 0 30px 60px -30px rgba(11, 13, 16, 0.14);
+  --shadow-diffuse-accent: 0 24px 48px -20px rgba(47, 111, 237, 0.28);
+  --shadow-inset-glass: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Fixed grain layer — never applied to scrolling containers */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
