@@ -11,6 +11,7 @@ import {
   ChatCircle,
 } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
+import { TiltCard } from "@/components/ui/tilt-card";
 import { siteImages } from "@/data/images";
 
 const strengths = [
@@ -40,7 +41,7 @@ export function AboutSection() {
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[var(--radius-2xl)] lg:mx-0">
+          <TiltCard className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[var(--radius-2xl)] lg:mx-0">
             <Image
               src={siteImages.aboutWorkstation.src}
               alt={siteImages.aboutWorkstation.alt}
@@ -52,7 +53,7 @@ export function AboutSection() {
               <ShieldCheck className="h-5 w-5 text-[var(--color-accent-bright)]" weight="bold" />
               <span className="text-sm font-bold tracking-wide text-white">PHP</span>
             </div>
-          </div>
+          </TiltCard>
 
           <div className="flex flex-col gap-6">
             <h2 className="text-balance text-3xl font-extrabold tracking-tighter text-[var(--color-text)] md:text-5xl">

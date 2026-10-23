@@ -14,6 +14,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/ui/magnetic";
+import { TiltCard } from "@/components/ui/tilt-card";
+import { MeshGradient } from "@/components/ui/mesh-gradient";
 import { siteImages } from "@/data/images";
 import { requestServicePrefill } from "@/lib/prefill";
 import { buildWhatsAppLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
@@ -49,13 +51,7 @@ export function HeroSection() {
       id="home"
       className="relative overflow-hidden bg-[var(--color-ink)] pt-16 pb-24 md:pt-20 md:pb-32"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 15% 20%, rgba(37,139,255,0.25), transparent 45%), radial-gradient(circle at 85% 70%, rgba(18,103,241,0.2), transparent 50%)",
-        }}
-      />
+      <MeshGradient variant="dark" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -148,7 +144,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto w-full max-w-md lg:max-w-none"
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10">
+          <TiltCard className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10">
             <Image
               src={siteImages.heroEngineer.src}
               alt={siteImages.heroEngineer.alt}
@@ -158,7 +154,7 @@ export function HeroSection() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/20 to-transparent" />
-          </div>
+          </TiltCard>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}

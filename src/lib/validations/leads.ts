@@ -20,14 +20,6 @@ export const serviceRequestedValues = [
   "other",
 ] as const;
 
-/**
- * Field names here intentionally match the Apps Script payload variables
- * (fullName, email, phone, website, platform, service, message) so the API
- * route's mapping onto URLSearchParams is a 1:1 passthrough for those fields.
- * `companyName` and `honeypot` are the two exceptions: companyName has no
- * column in the existing Sheet and is never sent to Apps Script, and
- * honeypot is never forwarded either — it's checked and dropped.
- */
 export const leadFormSchema = z.object({
   fullName: z
     .string()
@@ -74,13 +66,6 @@ export const leadFormSchema = z.object({
   consent: z.literal(true, {
     error: "Consent is required to submit this form.",
   }),
-  // Honeypot trap. Named to match the Apps Script payload's own
-  // `company_website` parameter; unrelated to the visible `companyName`
-  // field above. Deliberately unconstrained here (no max length) so a
-  // filled trap doesn't fail *validation* — the route checks its value
-  // after parsing and silently fakes success for bots instead of
-  // returning a distinguishing error response.
-  company_website: z.string().optional().or(z.literal("")),
 });
 
 export type LeadFormValues = z.infer<typeof leadFormSchema>;

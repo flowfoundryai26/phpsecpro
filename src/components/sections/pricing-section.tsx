@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "@phosphor-icons/react/dist/ssr";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { pricingPlans, pricingDisclaimer } from "@/data/pricing";
 import { Button } from "@/components/ui/button";
 import { requestServicePrefill } from "@/lib/prefill";
@@ -31,10 +32,13 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className={`flex flex-col rounded-[var(--radius-xl)] border p-7 ${
+              className={plan.highlighted ? "lg:-translate-y-3" : ""}
+            >
+            <SpotlightCard
+              className={`flex h-full flex-col rounded-[var(--radius-xl)] border p-7 transition-colors duration-300 ${
                 plan.highlighted
-                  ? "border-[var(--color-accent)] bg-[var(--color-ink)] text-white shadow-[var(--shadow-diffuse-accent)] lg:-translate-y-3"
-                  : "border-[var(--color-border)] bg-white"
+                  ? "border-[var(--color-accent)] bg-[var(--color-ink)] text-white shadow-[var(--shadow-diffuse-accent)]"
+                  : "border-[var(--color-border)] bg-white hover:border-[var(--color-accent)]"
               }`}
             >
               {plan.badge && (
@@ -119,6 +123,7 @@ export function PricingSection() {
               >
                 {plan.ctaLabel}
               </Button>
+            </SpotlightCard>
             </motion.div>
           ))}
         </div>

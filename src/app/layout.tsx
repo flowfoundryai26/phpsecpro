@@ -96,6 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-screen bg-white font-sans text-[var(--color-text)]">
         {children}
+        <div className="grain-overlay pointer-events-none fixed inset-0 z-[60]" aria-hidden="true" />
       </body>
     </html>
   );

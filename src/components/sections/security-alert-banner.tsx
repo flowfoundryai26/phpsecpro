@@ -17,9 +17,18 @@ export function SecurityAlertBanner() {
     <section id="vulnerabilities" className="relative overflow-hidden bg-[var(--color-danger)]/5">
       <div className="relative grid grid-cols-1 lg:grid-cols-[1.3fr_1fr]">
         <div className="flex flex-col gap-5 px-4 py-14 sm:px-6 md:py-16 lg:px-12">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-danger)]/10 text-[var(--color-danger)]">
-            <Warning className="h-6 w-6" weight="bold" />
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-danger)]/10 text-[var(--color-danger)]">
+              <Warning className="h-6 w-6" weight="bold" />
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[var(--color-danger)]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-danger)] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-danger)]" />
+              </span>
+              Live advisory
+            </span>
+          </div>
           <h2 className="text-balance text-2xl font-extrabold tracking-tighter text-[var(--color-danger)] md:text-3xl">
             Latest PHP vulnerabilities
           </h2>

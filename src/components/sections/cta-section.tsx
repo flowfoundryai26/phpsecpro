@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Phone } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
+import { MeshGradient } from "@/components/ui/mesh-gradient";
 import { siteImages } from "@/data/images";
 import { buildWhatsAppLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
 import { CtaRequestButton } from "@/components/sections/cta-request-button";
@@ -17,6 +18,7 @@ export function CTASection() {
           className="object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-ink)] via-[var(--color-ink)]/85 to-[var(--color-ink)]" />
+        <MeshGradient variant="dark" />
       </div>
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 text-center sm:px-6 lg:px-8">

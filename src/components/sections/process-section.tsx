@@ -1,8 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { processSteps } from "@/data/process";
+
+function Connector({ delay }: { delay: number }) {
+  return (
+    <svg
+      viewBox="0 0 40 10"
+      className="hidden h-2.5 w-10 shrink-0 text-[var(--color-accent)]/50 md:block"
+      fill="none"
+      aria-hidden="true"
+    >
+      <motion.path
+        d="M0 5 H32"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeDasharray="4 3"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5, delay }}
+      />
+      <motion.path
+        d="M28 1 L34 5 L28 9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.3, delay: delay + 0.4 }}
+      />
+    </svg>
+  );
+}
 
 export function ProcessSection() {
   return (
@@ -45,9 +77,7 @@ export function ProcessSection() {
                     {step.description}
                   </p>
                 </motion.div>
-                {index < processSteps.length - 1 && (
-                  <ArrowRight className="hidden h-5 w-5 shrink-0 text-[var(--color-accent)]/40 md:block" />
-                )}
+                {index < processSteps.length - 1 && <Connector delay={index * 0.1 + 0.3} />}
               </div>
             );
           })}

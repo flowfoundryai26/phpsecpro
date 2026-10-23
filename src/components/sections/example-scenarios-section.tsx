@@ -1,4 +1,5 @@
 import { Info } from "@phosphor-icons/react/dist/ssr";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { scenarios } from "@/data/scenarios";
 
 export function ExampleScenariosSection() {
@@ -24,9 +25,9 @@ export function ExampleScenariosSection() {
             const Icon = scenario.icon;
             const featured = index === 0;
             return (
-              <div
+              <SpotlightCard
                 key={scenario.title}
-                className={`flex flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] p-7 ${
+                className={`flex flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] p-7 transition-colors duration-300 hover:border-[var(--color-accent)] ${
                   featured ? "md:col-span-2 md:flex-row md:items-start md:gap-8 md:p-9" : ""
                 }`}
               >
@@ -57,7 +58,7 @@ export function ExampleScenariosSection() {
                     Illustrative example, not a completed engagement
                   </span>
                 </div>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
