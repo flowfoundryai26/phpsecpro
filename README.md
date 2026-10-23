@@ -198,5 +198,4 @@ Before going live:
    Leads sheet.
 3. If deploying to a serverless/multi-instance platform, replace the
    in-memory rate limiter (see Rate Limiting above) with a shared store.
-#   p h p s e c p r o  
- 
+#
